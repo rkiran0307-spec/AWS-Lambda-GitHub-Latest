@@ -5,7 +5,7 @@ phases:
       python: 3.9
     commands:
       - echo "Installing dependendies..."
-      - pip install  -r requirements.txt -t lib
+      - pip install -r requirements.txt -t lib
   pre_build:
     commands:
       - echo Nothing to do in the pre_build phase...
