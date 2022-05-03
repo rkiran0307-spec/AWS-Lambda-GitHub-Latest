@@ -1,5 +1,11 @@
 version: 0.2
 phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - echo "Installing dependendies..."
+      - pip install  -r requirements.txt -t lib
   build:
     commands:
       - echo "zipping deployment package..."
@@ -7,12 +13,6 @@ phases:
       - zip -r9 ../deployment package.zip .
       - cd ..
       - zip -g deployment_package.zip lambda_function.py
-  install:
-    runtime-versions:
-      python: 3.9
-    commands:
-      - echo "Installing dependendies..."
-      - pip install  -r requirements.txt -t lib
   post-build:
     commands: 
       - echo "Updating lambda Function..."
